@@ -4,8 +4,14 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Group {
-public class Student{
-public Student(String name, int age){
+
+}
+
+class Student{
+    String name;
+    int age;
+
+    public Student(String name, int age){
         this.name=name;
         this.age=age;
     }
@@ -13,8 +19,7 @@ public Student(String name, int age){
     @Override
     public String toString() {
         return "Student{" +
-                "stud=" + stud +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 ", students=" + students +
                 '}';
@@ -22,28 +27,27 @@ public Student(String name, int age){
 
     public  void main(String[] args) {
         Student stud = new Student( "Tom",20);
-       stud.addStudents('Jack', 21);
+        stud.addStudents("Jack", 21);
         System.out.println(students);
     }
 
 
-    Map<Student, Integer> students = new HashMap();
-public  int averageage(String name,int age){
+    Map<String, Integer> students = new HashMap();
+    public  int averageage(String name,int age){
 
-    Set<Map.Entry<Student,Integer>> spisok=students.entrySet();
+        Set<Map.Entry<String,Integer>> spisok=students.entrySet();
         int totalSum=0;
-        for(Map.Entry<Student,Integer> temp:spisok){
+        for(Map.Entry<String,Integer> temp:spisok){
             totalSum=totalSum+temp.getValue()/students.size() ;
         }
 
 
         return totalSum;
     }
-    public void addStudents(Student stud, int age){
-    students.put(stud,age);
+    public void addStudents(String name, int age){
+       // Student temp=new Student(name,age);
+        students.put(name,age);
     }
 
 
 }
-}
-
