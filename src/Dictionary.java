@@ -1,17 +1,9 @@
 import java.util.*;
 
 public class Dictionary {
-   // String language;
+
     Map<String, List<String>> hashmap = new HashMap< String, List<String>>();
 
-   // public Dictionary(String language) {
-  //      this.language = language;
-  //  }
-
-//    public Dictionary(Dictionary diction) {
-////        diction.hashmap
-////
-////    }
 public static void main(String[] args) {
     Dictionary dictionary1 = new Dictionary();
     dictionary1.addWord("work", "работать");
@@ -22,7 +14,7 @@ public static void main(String[] args) {
     dictionary1.printDictionary();
 }
 
-    public void addWord (String word, String          translation){
+    public void addWord (String word, String  translation){
         List<String> translateList = hashmap.get(word);
         if(translateList==null){
             translateList  =  new ArrayList<>();

@@ -45,7 +45,7 @@ class Student{
         return totalSum;
     }
     public void addStudents(String name, int age){
-       // Student temp=new Student(name,age);
+
         students.put(name,age);
     }
 
