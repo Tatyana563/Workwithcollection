@@ -64,7 +64,7 @@ myGroup.theYoungest();
         Student temp;
         while(it1.hasNext()){
             temp=it1.next();
-            it1.remove();
+           // it1.remove();
             if(temp.age<minAge){
                 result=temp;
                 minAge=result.age;
