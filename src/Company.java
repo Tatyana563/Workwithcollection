@@ -16,22 +16,22 @@ import java.util.stream.Collector;
 
     public static void main(String[] args) {
         Company myCompany = new Company();
-        ArrayList<Worker> workersList = new ArrayList();
+      //  ArrayList<Worker> workersList = new ArrayList();
 
         Worker emp1 = new Worker("Bob",750,15);
         Worker emp2 = new Worker("Mark",450,25);
         Worker emp3 = new Worker("Becky",500,10);
         Worker emp4 = new Worker("Alis",250,30);
-
-        workersList.add(emp1);
-        workersList.add(emp2);
-        workersList.add(emp3);
-        workersList.add(emp4);
+        Worker emp5 = new Worker("Gleb",250,30);
+        Worker emp6 = new Worker("Tom",250,30);
 
         myCompany.addWorker(emp1);
         myCompany.addWorker(emp2);
         myCompany.addWorker(emp3);
         myCompany.addWorker(emp4);
+        myCompany.addWorker(emp5);
+        myCompany.addWorker(emp6);
+
       // System.out.println("AT FIRST"+workersList);
       //  System.out.println(myCompany);
       //  System.out.println("Average salary:" + myCompany.averSalary());
@@ -49,7 +49,7 @@ import java.util.stream.Collector;
      //   System.out.println(workersList);
         //найти людей с одинаковым именем и отсртировать по возрастанию зп
 
-        Collections.sort(workersList, new Comparator<Worker>() {
+        Collections.sort(myCompany.workersList, new Comparator<Worker>() {
             @Override
             public int compare(Worker o1, Worker o2) {
                 if(o1.salary==o2.salary)
@@ -57,19 +57,28 @@ import java.util.stream.Collector;
                 else return o1.dayOff-o2.dayOff;
             }
         });
-        System.out.println(workersList);
+        System.out.println(myCompany.workersList);
 
-        Collections.sort(workersList, new Comparator<Worker>() {
+        Collections.sort(myCompany.workersList, new Comparator<Worker>() {
             @Override
             public int compare(Worker o1, Worker o2) {
                 if((o1.salary==o2.salary)&&(o1.dayOff==o2.dayOff)){
-                        return o1.name.compareTo(o2.name)};
-             else {return o1.dayOff-o2.dayOff};
+                        return o1.name.compareTo(o2.name);
+                }
+             else {
+                 return o1.dayOff-o2.dayOff;
+             }
             }
         });
 
-    }
 
+    Collections.sort(myCompany.workersList, new Comparator<Worker>() {
+        @Override
+        public int compare(Worker o1, Worker o2) {
+            return o1.name.compareTo(o2.name)*11111+(o1.salary-o2.salary);
+        }
+    });
+    }
 
     public double averSalary(){// not exactly!!!! 367.5
         int totalSum = 0;
